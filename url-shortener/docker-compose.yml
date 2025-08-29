@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  spring-app:
+    image: url-shortener:0.0.1-SNAPSHOT
+    ports:
+      - "8080:8080"
+    environment:
+      # Tell Spring to connect to the MySQL service
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/shortener_db
+      - SPRING_DATASOURCE_USERNAME=myuser
+      - SPRING_DATASOURCE_PASSWORD=mypassword
+      # Tell Spring to connect to the Redis service
+      - SPRING_REDIS_HOST=redis
+      - SPRING_REDIS_PORT=6379
+    depends_on:
+      - redis
+      - mysql-db
+
+  redis:
+    image: redis:6.2-alpine
+    ports:
+      - "6379:6379"
+
+  mysql-db:
+    image: mysql:8.0
+    environment:
+      - MYSQL_DATABASE=shortener_db
+      - MYSQL_USER=myuser
+      - MYSQL_PASSWORD=mypassword
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:

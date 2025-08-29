@@ -2,25 +2,16 @@ URL Shortener
 A modern URL shortener application built with Spring Boot, MySQL, and Redis. The application provides a simple web interface for shortening links and a REST API for programmatic access, complete with a caching layer for high performance.
 
 Table of Contents
-Project Overview
-
-Features
-
-Technology Stack
-
-Getting Started
-
-Prerequisites
-
-Local Development
-
-Docker with Docker Compose
-
-API Endpoints
-
-CI/CD Pipeline
-
-Acknowledgements
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [Technology Stack](#technology-stack)
+- [Getting Started](#getting-started)
+- [Prerequisites](#prerequisites)
+- [Local Development](#local-development)
+- [Docker with Docker Compose](#docker-with-docker-compose)
+- [API Endpoints](#api-endpoints)
+- [CI/CD Pipeline](#ci/cd-pipeline)
+- [Acknowledgements](#acknowledgements)
 
 Project Overview
 This project implements a complete URL shortener service. It uses a database for long-term persistence of link data and a Redis cache for fast retrieval of frequently accessed URLs. The application is containerized using Docker, and the development environment is managed with Docker Compose.
